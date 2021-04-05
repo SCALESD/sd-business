@@ -30,10 +30,88 @@ Tools, techniques, and use cases to discuss at this time:
   3. `ipyleaflet`, bqplot, and `ipywidgets` for mapping and dashboard development.
   4. `osmnx` for geocoding (via **OSM**).
 
+## Examples
 
+`Starting from Daniel's email:`<br/>
+Based on that table, we've identified the following categories (`sector highlighting is mine`):<br/>
+Construction - code **23**, **23**3, **23**4 etc.<br/>
+Personal care - **81**21<br/>
+Health - **62**1 and similar<br/>
+restaurants - **31**, **31**1811, **31**212 etc.<br/>
+schools and instruction (including fitness and personal training) - **61**, **61**1<br/>
+retail (**45**) somehow didn't make it into pivot tables, but I believe it should be there as well - small retail
+
+So, for starters, the `sectors` **we're interested in** are: **23, 31, 45, 61, 62, and 81**.
+
+The **first example** looks at the `business` in our `sectors of interest`.  Very basic stuff!<br><br><br>
+
+
+
+
+
+  <table>
+      <tr> 
+        <td >
+            <table >
+                <tr>Using NAICS codes I filtered the data set to get to something a bit more managable.<br>  The results are summarized in the following count plot.<br><br></tr>
+              <tr>
+                  <td>
+                      <div><img src="img/countplot.png" width="400"></div>
+                  </td><tr>
+                <tr>
+               <td>
+                  Overall, as the exploratory system is developed I'm trying to relate statistical and geographic views.
+                    <ol>
+                      <li>NAICS business categories are used to show counts</li>
+                      <li>Counts and map markers have a consistent color palette</li>
+                      <li>The map display provides access to underlying data</li>
+                    </ol>
+              </td>
+                </tr>
+            </table>
+         <td >
+          <table >
+            <tr>
+                <td>
+                  <div><img src="img/map2.png" width="500"><br></div>
+                </td>
+              </tr>
+             </table>
+
+  </table>
+
+
+
+    
+    
+    
+    
+The **second example** incorporates the Business Improvement Districts (BIDs).  Note I'm using a slightly different technique for the map markers.<br>  It decluters the map as the analysis unfolds.  The `first image` shows the overlay of BID polygons.  BID data was obtained from City of San Diego open data.
+    
+ <div align="center">
+    <img src="img/bids.png"><br>
+ </div>    
+    
+    
+ <br><br>  
+My initial thoughts were to use the geocoded addresses from the business data, the BID polygons, and the point-in-polygon function to determine which businees are in which BID.  I'm not sure that works...
+    
+The `second image` in this example is a snapshot of the Boulevard BID.  Numbered MarkerClusters show that multiple markers have bee "clustered" to declutter the map.  I selected one of the markers and show the information I'm showing for the business.  There other fields in the record.
+    
+    
+<div align="center">
+    <img src="img/ecb-bid.png"><br>
+ </div> 
+
+    
+## Next Steps
+    
+    I am working the business questions now.  If anyone wants to hear more let me know!
+    
+    
 ## Contents of the repo
 
-- data directory contains the various csv and shape files
+- data directory contains the various csv and (geocoded) shape files
 
 - notebooks directory contains the initial notebooks
    - `tranform.ipynb` - primary notebook to process the business csv
